@@ -1,0 +1,29 @@
+swagger: '2.0'
+info:
+  title: Steering API
+  description: |
+    API to query steer articles.
+  version: '0.1'
+  contact:
+    name: Team Axiom
+    email: team-axiom@zalando.de
+basePath: /api
+schemes:
+  - https
+produces:
+  - application/x.zalando.steering+json
+  - application/problem+json
+paths:
+  /health:
+    get:
+      description: Simple health check.
+      responses:
+        200:
+          description: everything is fine
+          schema:
+            $ref: '#/definitions/HealthStatus'
+definitions:
+  HealthStatus:
+    properties:
+      message:
+        type: string

@@ -1,0 +1,58 @@
+logging.level.root: INFO
+logging.level.de.zalando: INFO
+logging.level.de.zalando.steering: DEBUG
+logging.level.org.zalando: INFO
+
+
+
+twintip:
+  mapping: /api
+  yaml: classpath:/steering-api.yaml
+
+tokens:
+  access-token-uri: https://token.services.auth.zalando.com/oauth2/access_token?realm=/services
+  credentials-directory: /home/treichenbach/.aws
+  token-info-uri: https://info.services.auth.zalando.com/oauth2/tokeninfo
+  token-configuration-list:
+   - token-id: nakadi
+     scopes:
+       - nakadi.event_stream.read  # Grants access for consuming Event streams.
+       - nakadi.event_stream.write # Grants access for applications to submit Events.
+       - uid
+
+zalando:
+  security:
+    matchers:
+      unprotected:
+          - /api/health
+
+security:
+  basic:
+    enabled: false
+
+endpoints:
+  enabled: false
+  health:
+    enabled: true
+    path: /health
+
+nakadi:
+  url: https://nakadi-staging.aruha-test.zalan.do
+  token: nakadi
+  applicationName: bm
+
+info:
+  app:
+    name: Zalando Steering POC
+    description: Proof of concept for steering
+    version: 0.0.1
+
+application:
+  application-name: bm
+  consumer-group: bm-masterdata-integration
+  event-name: catalog.masterdata-change.v0.integration
+  nakadi-batch-limit: 10000
+  nakadi-max-uncommitted-events: 10000
+  nakadi-stream-timeout: 1800
+  flux-concurrency: 10
+
