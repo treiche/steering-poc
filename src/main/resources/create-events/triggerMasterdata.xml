@@ -1,0 +1,13 @@
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:even="http://catalog.zalando.de/writing/eventTrigger">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <even:triggerEvents>
+         <request>
+            <codes>0AB,0AB,0AB,0AB,0AB,0AB,0AB,0AB,0AB,0AB,0AC,0AE,0AF,0AG,0AJ,0AL,0AN,0AP,0AR,0AT,0AU,0AV,0BA,0BB,0BE,0BH,0BJ,0BK,0BL,0BM,0BR,0BS,0BU,0CA,0CD,0CE,0CH,0CL,0CM,ZW2,ZZZ</codes>
+            <eventTriggerType>MASTER_DATA</eventTriggerType>
+            <masterDataType>BRAND</masterDataType>
+         </request>
+         <emailAddress>torsten.reichenbach@zalando.de</emailAddress>
+      </even:triggerEvents>
+   </soapenv:Body>
+</soapenv:Envelope>
